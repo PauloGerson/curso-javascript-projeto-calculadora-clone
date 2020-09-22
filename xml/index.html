@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <script>
+        var x, xmlDoc;
+        var txt = "";
+        var text = "<book>" +
+            "<title>Everyday Italian</title>" +
+            "<author> Paulo Gerson lauren</author>" +
+            "<year>2005</year>" +
+            "</book>";
+        parser = new DOMParser();
+        xmlDoc = parser.parseFromString(text, "text/xml");
+        x = xmlDoc.documentElement.childNodes;
+        for (i = 0; i < x.length; i++) {
+            txt += x[i].nodeName + ":" + x[i].childNodes[0].nodeValue + "<br>";
+        }
+        document.getElementById("demo").innerHTML = txt;
+    </script>
+</body>
+
+</html>
